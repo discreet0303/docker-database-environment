@@ -10,6 +10,7 @@ services:
       - ./mysql/data:/var/lib/mysql
     environment:
       MYSQL_ROOT_PASSWORD: ""
+    command: ['mysqld', '--character-set-server=utf8mb4', '--collation-server=utf8mb4_unicode_ci']
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin:latest
