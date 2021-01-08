@@ -4,7 +4,7 @@ Using docker to build a database environment
 ## Quick Start
 * Clone the repository
 ```
-git clone https://github.com/discreet0303/docker-mysql-myadmin.git
+git clone https://github.com/discreet0303/docker-database-environment.git
 ```
 * Choose the database environment you want, then ```cd``` to folder
 * Set each database config
