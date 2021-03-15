@@ -1,0 +1,28 @@
+version: "2"
+services:
+  mysql:
+    image: amd64/mysql:8.0.23
+    container_name: mysql
+    restart: always
+    ports:
+      - 3306:3306
+    volumes:
+      - ./data:/var/lib/mysql
+      - ./mysql/conf.d:/etc/mysql/conf.d
+    environment:
+      MYSQL_ROOT_PASSWORD: ""
+    command: ['mysqld', '--character-set-server=utf8mb4', '--collation-server=utf8mb4_unicode_ci']
+
+  phpmyadmin:
+    image: arm64v8/phpmyadmin:latest
+    container_name: myadmin
+    restart: always
+    ports:
+      - 8888:80
+    volumes:
+      - ./myadmin/upload.ini:/usr/local/etc/php/conf.d/uploads.ini
+    environment:
+      MYSQL_ROOT_PASSWORD: ""
+      PMA_HOST: mysql
+    depends_on:
+      - mysql

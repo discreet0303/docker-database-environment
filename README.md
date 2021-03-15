@@ -11,7 +11,19 @@ git clone https://github.com/discreet0303/docker-database-environment.git
 * Run this command `docker-compose up -d`
 
 ## Environments
-### mysql:5.7.24 + phpmyadmin:latest
+### (intel version)mysql:5.7.24 + phpmyadmin:latest
+
+* `MYSQL_ROOT_PASSWORD` set mysql root password
+    * check `mysql` and `phpmyadmin`  container have the same value
+* You can set `phpmyadmin` config in `myadmin` folder, there are some initial value
+    * `file_uploads`: on
+    * `memory_limit`: 1000M
+    * `upload_max_filesize`: 1000M
+    * `post_max_size`: 1000M
+    * `max_execution_time`: 600
+
+
+### (arm64V8 version)amd64/mysql:8.0.23 + arm64v8/phpmyadmin:latest
 
 * `MYSQL_ROOT_PASSWORD` set mysql root password
     * check `mysql` and `phpmyadmin`  container have the same value
