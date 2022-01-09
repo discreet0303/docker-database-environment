@@ -1,0 +1,7 @@
+version: "2"
+services:
+  adminer:
+    image: adminer:4.8.1
+    container_name: adminer
+    ports:
+      - 9999:8080
