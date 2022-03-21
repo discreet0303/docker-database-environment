@@ -1,23 +1,22 @@
-version: "2"
+version: '2'
 services:
   postgres:
-    image: postgres:13.1
+    image: postgres:14.2
     container_name: postgres
     restart: always
     ports:
       - 5432:5432
     environment:
-      POSTGRES_USER: ''
-      POSTGRES_PASSWORD: ''
-    
-  pgadmin:
-    image: dpage/pgadmin4:latest
-    container_name: pgadmin
-    restart: always
-    depends_on: 
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD:
+    volumes:
+      - ./data:/var/lib/postgresql/data
+
+  admin:
+    image: adminer
+    depends_on:
       - postgres
-    ports: 
-      - 8888:80
     environment:
-      PGADMIN_DEFAULT_EMAIL: 'user@domain.com'
-      PGADMIN_DEFAULT_PASSWORD: ''
+      ADMINER_DEFAULT_SERVER: postgres
+    ports:
+      - 8889:8080
